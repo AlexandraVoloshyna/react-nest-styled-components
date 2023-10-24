@@ -5,7 +5,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
   app.enableCors({
-    origin:['http://localhost:5173'],
+    origin:['https://react-client-kq14.onrender.com'],
     methods: ['POST', 'GET',],
     credentials: true
 });
