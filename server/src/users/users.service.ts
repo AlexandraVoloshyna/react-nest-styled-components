@@ -44,10 +44,7 @@ export class UsersService {
     }
     const passwordMatch = bcrypt.compare(loginDto.password, user.password);
     if (!passwordMatch) {
-      return {
-        success: false,
-        message: 'Invalid email or password',
-      };
+       throw new BadRequestException('Invalid email or password');
     }
     const token =  await this.jwtService.signAsync({id: user.id})
     return {
