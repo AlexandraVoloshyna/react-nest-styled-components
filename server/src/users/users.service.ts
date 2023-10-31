@@ -42,7 +42,7 @@ export class UsersService {
     if (!user) {
       throw new BadRequestException('Invalid email or password');
     }
-    const passwordMatch = bcrypt.compare(loginDto.password, user.password);
+    const passwordMatch = await bcrypt.compare(loginDto.password, user.password);
     if (!passwordMatch) {
        throw new BadRequestException('Invalid email or password');
     }
